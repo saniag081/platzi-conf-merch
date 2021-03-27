@@ -16,12 +16,19 @@ function useInitialState() {
 			...state,
 			cart: state.cart.filter((item, index) => item.id !== payload.id || index !== indexToRemove)
 		})
-		console.log(payload, indexToRemove)
+	}
+
+	const addToBuyer = (payload) => {
+		setState({
+			...state,
+			buyer: [...state.buyer, payload]
+		})
 	}
 
 	return {
 		addToCart,
 		removeFromCart,
+		addToBuyer,
 		state
 	}
 }
